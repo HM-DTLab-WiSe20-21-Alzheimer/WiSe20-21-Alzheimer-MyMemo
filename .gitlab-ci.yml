@@ -1,0 +1,69 @@
+image: gradle:6.7-jdk11
+
+before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export GRADLE_OPTS="-Dorg.gradle.daemon=false"
+
+stages:
+    - compile
+    - evaluate
+    - deploy
+
+build:
+    stage: compile
+    script: gradle --build-cache assemble
+    cache:
+        key: "$CI_COMMIT_REF_NAME"
+        policy: push
+        paths:
+            - build
+            - .gradle
+    artifacts:
+        paths:
+            - build
+        expire_in: 1 week
+
+
+test:
+    stage: evaluate
+    script: gradle test
+    cache:
+        key: "$CI_COMMIT_REF_NAME"
+        policy: pull
+        paths:
+            - build
+            - .gradle
+
+style:
+    stage: evaluate
+    script: gradle check
+    cache:
+        key: "$CI_COMMIT_REF_NAME"
+        policy: pull
+        paths:
+            - build
+            - .gradle
+
+sonarqube-check:
+    stage: evaluate
+    variables:
+        SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+        GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+    cache:
+        key: "${CI_JOB_NAME}"
+        paths:
+            - .sonar/cache
+    script:
+        - gradle test
+        - gradle sonarqube -Dsonar.qualitygate.wait=true -Dsonar.host.url=${SONAR_HOST} -Dsonar.login=${SONAR_TOKEN}
+    only:
+        - master
+
+deploy:
+    stage: deploy
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+    only:
+        - master
+    script:
+        - aws sts get-caller-identity
+        - aws lambda update-function-code --function-name myMemoBackend --publish --zip-file fileb://./build/libs/mymemo-1.0-SNAPSHOT.jar

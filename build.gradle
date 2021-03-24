@@ -1,0 +1,129 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+    id 'com.github.spotbugs' version '4.6.0'
+    id 'jacoco'
+
+    id 'org.sonarqube' version '3.0'
+}
+
+group 'edu.hm.sweng'
+version '1.0-SNAPSHOT'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+pmd {
+    toolVersion = "6.21.0"
+    ignoreFailures = false
+    ruleSets = ["$projectDir/config/pmd/pmd.xml"]
+}
+pmdMain {
+    consoleOutput = true
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/pmd.html")
+        }
+        xml {
+            enabled = false
+        }
+    }
+}
+pmdTest {
+    enabled = false
+}
+
+checkstyle {
+    configFile = file("$projectDir/config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    showViolations = true
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/checkstyle.html")
+            stylesheet = resources.text.fromFile("$projectDir/config/checkstyle/checkstyle-custom.xsl")
+        }
+        xml {
+            enabled = false
+        }
+    }
+}
+checkstyleTest{
+    enabled = false
+}
+
+spotbugsMain {
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+        xml {
+            enabled = false
+        }
+    }
+}
+spotbugsTest {
+    enabled = false
+}
+
+jacoco {
+    toolVersion = "0.8.6"
+}
+
+test {
+    finalizedBy jacocoTestReport
+    jacoco {
+        enabled = true
+        destinationFile = file("$buildDir/jacoco/${name}.exec")
+    }
+}
+jacocoTestReport {
+    dependsOn test
+    reports {
+        html {
+            enabled = true
+            destination = file("${buildDir}/reports/jacoco")
+        }
+        xml {
+            enabled = true
+        }
+    }
+}
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation group: 'com.amazon.alexa', name: 'ask-sdk', version:'2.36.0'
+    implementation group: 'com.amazonaws', name: 'aws-lambda-java-log4j2', version:'1.1.0'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+    testImplementation group: 'org.mockito', name: 'mockito-inline', version: '3.7.0'
+}
+
+jar {
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+

@@ -1,0 +1,32 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = false
+charset = utf-8
+trim_trailing_whitespace = true
+max_line_length = 120
+indent_style = space
+indent_size = 4
+
+[*.java]
+ij_java_align_multiline_parameters = true
+ij_java_align_multiline_parameters_in_calls = true
+ij_java_align_multiline_chained_methods = false
+ij_java_blank_lines_after_package = 1
+ij_java_blank_lines_after_class_header = 1
+ij_java_blank_lines_after_imports = 1
+ij_java_blank_lines_around_method = 1
+ij_java_case_statement_on_separate_line = true
+ij_java_for_brace_force = always
+ij_java_if_brace_force = always
+ij_java_do_while_brace_force = always
+ij_java_while_brace_force = always
+ij_java_indent_case_from_switch = true
+ij_java_line_comment_add_space = true
+ij_java_method_brace_style = end_of_line
+

@@ -1,0 +1,72 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-central-1:051886484530:function:myMemoBackend"
+        },
+        "interfaces": [],
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-central-1:051886484530:function:myMemoBackend"
+            }
+          },
+          "EU": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-central-1:051886484530:function:myMemoBackend"
+            }
+          },
+          "FE": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-central-1:051886484530:function:myMemoBackend"
+            }
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::alerts:reminders:skill:readwrite"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "locales": {
+        "de-DE": {}
+      },
+      "usesPersonalInfo": false
+    },
+    "publishingInformation": {
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "HEALTH_AND_FITNESS",
+      "distributionCountries": [
+        "DE"
+      ],
+      "distributionMode": "PUBLIC",
+      "isAvailableWorldwide": false,
+      "locales": {
+        "de-DE": {
+          "description": "Mit diesem Skill können Sie Erinnerungen verwalten und mit anderen Personen teilen.",
+          "examplePhrases": [
+            "Alexa öffne my memo",
+            "Erinnere mich an Mamas Geburtstag",
+            "Welche Aufgaben muss ich noch machen"
+          ],
+          "keywords": [
+            "Erinnerung"
+          ],
+          "name": "mymemo",
+          "summary": "Verwalte und Teile Erinnerungen"
+        }
+      },
+      "testingInstructions": "Erinnere mich an Mamas Geburtstag mit my memo."
+    }
+  }
+}

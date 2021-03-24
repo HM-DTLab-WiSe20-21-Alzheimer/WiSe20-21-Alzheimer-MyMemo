@@ -1,0 +1,755 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my memo",
+            "modelConfiguration": {
+                "fallbackIntentSensitivity": {
+                    "level": "LOW"
+                }
+            },
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ReadDescriptionIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "kannst du mir was genaueres zu {subject} sagen",
+                        "sag mir etwas zu {subject} ",
+                        "Was war {subject}",
+                        "was genau hatte ich für {subject} geplant",
+                        "kannst du mit etwas zu {subject} sagen",
+                        "Lies mir eine Beschreibung zu {subject} vor",
+                        "sag mit was genaueres zu {subject}",
+                        "was ist mit {subject} gemeint",
+                        "lies mit die beschreibung von {subject} vor"
+                    ]
+                },
+                {
+                    "name": "DeleteReminderIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Vergesse {subject}",
+                        "Erinnere mich nicht mehr an {subject}",
+                        "Erinnere mich nicht an {subject}",
+                        "Deaktiviere {subject}",
+                        "Entferne {subject}",
+                        "Bitte lösche {subject}",
+                        "Lösche {subject}"
+                    ]
+                },
+                {
+                    "name": "CreateReminderIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "Erinner mich um {time}",
+                        "Erinnere mich um {time}",
+                        "Erinnere mich am {date}",
+                        "Erinner mich am {date}",
+                        "Erinnere mich am {date} um {time}",
+                        "Erinner mich am {date} um {time}",
+                        "Erinner mich an {subject}",
+                        "Erinner mich daran {subject}",
+                        "Erinnere mich daran {subject}",
+                        "Erinnere mich an {subject}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": [
+                        "Nö",
+                        "Nein"
+                    ]
+                },
+                {
+                    "name": "AddDescriptionIntent",
+                    "slots": [
+                        {
+                            "name": "description",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Joa {description}",
+                        "Ja {description}"
+                    ]
+                },
+                {
+                    "name": "UpdateReminderIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "die an {subject}",
+                                "Die Erinnerung an {subject}",
+                                "Die Erinnerung {subject}",
+                                "{subject}"
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        },
+                        {
+                            "name": "newDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "Ändere es auf {newDate}",
+                                "An {newDate}",
+                                "Auf {newDate}",
+                                "{newDate}"
+                            ]
+                        },
+                        {
+                            "name": "newTime",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "um {newTime}",
+                                "auf {newTime}",
+                                "{newTime}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Ändere eine Erinnerung am {date} um {time}",
+                        "Ändere eine Erinnerung um {time}",
+                        "Ändere eine Erinnerung am {date}",
+                        "Ändere die Erinnerung am {date}",
+                        "Ändere die Erinnerung um {time}",
+                        "Ändere die Erinnerung am {date} um {time}",
+                        "Ändere die Erinnerung {subject}",
+                        "Ändere eine Erinnerung."
+                    ]
+                },
+                {
+                    "name": "ReadReminderIntent",
+                    "slots": [
+                        {
+                            "name": "firstDate",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "secondDate",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "timeframe",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Welche Tasks muss ich noch erledigen",
+                        "Welche Tasks muss ich erledigen",
+                        "Welche Tasks muss ich noch machen",
+                        "Welche Tasks muss ich machen",
+                        "Welche Sachen muss ich noch erledigen",
+                        "Welche Sachen muss ich erledigen",
+                        "Welche Sachen muss ich noch machen",
+                        "Welche Sachen muss ich machen",
+                        "Welche Aufgaben muss ich noch erledigen",
+                        "Welche Aufgaben muss ich erledigen",
+                        "Welche Aufgaben muss ich noch machen",
+                        "Welche Aufgaben muss ich machen",
+                        "Welche Erinnerungen habe ich heute",
+                        "Welche Tasks muss ich {timeframe} erledigen",
+                        "Welche Aufgaben muss ich {timeframe} erledigen",
+                        "Welche Sachen muss ich {timeframe} erledigen",
+                        "Welche Tasks muss ich {timeframe} machen",
+                        "Welche Aufgaben muss ich {timeframe} machen",
+                        "Welche Sachen muss ich {timeframe} machen",
+                        "Welche Tasks muss ich {timeframe} noch erledigen",
+                        "Welche Aufgaben muss ich {timeframe} noch erledigen",
+                        "Welche Sachen muss ich {timeframe} noch erledigen",
+                        "Welche Tasks muss ich {timeframe} noch machen",
+                        "Welche Aufgaben muss ich {timeframe} noch machen",
+                        "Welche Sachen muss ich {timeframe} noch machen",
+                        "Was muss ich am {firstDate} erledigen",
+                        "Was muss ich {timeframe} erledigen",
+                        "Was muss ich {timeframe} noch erledigen",
+                        "Was muss ich am {firstDate} erledig",
+                        "Was muss ich am {firstDate} noch erledigen",
+                        "Was muss ich {timeframe} machen",
+                        "Was muss ich {timeframe} noch machen",
+                        "Was muss ich in der nächsten {timeframe} noch machen",
+                        "Was muss ich in der nächsten {timeframe} machen",
+                        "Was muss ich in der nächsten {timeframe} noch erldigen",
+                        "Was muss ich in der nächsten {timeframe} erldigen",
+                        "Was muss ich am {firstDate} machen",
+                        "Was muss ich am {firstDate} noch machen",
+                        "Was muss ich nächsten {timeframe} noch machen",
+                        "Was muss ich nächste {timeframe} machen",
+                        "Was muss ich nächsten {timeframe} noch erledigen",
+                        "Was muss ich nächste {timeframe} erlegiden",
+                        "Welche Erinnerungen habe ich zwischen {firstDate} und {secondDate}",
+                        "Welche Tasks habe ich zwischen {firstDate} und {secondDate}",
+                        "Welche Aufgaben habe ich zwischen {firstDate} und {secondDate}",
+                        "Welche muss ich zwischen {firstDate} und {secondDate} machen",
+                        "Welche muss ich zwischen {firstDate} und {secondDate} erledigen",
+                        "Was muss ich zwischen {firstDate} und {secondDate} erledigen",
+                        "Welche Erinnerungen habe ich von {firstDate} bis {secondDate}",
+                        "Welche Tasks habe ich von {firstDate} bis {secondDate}",
+                        "Welche Aufgaben habe ich von {firstDate} bis {secondDate}",
+                        "Welche muss ich von {firstDate} bis {secondDate} machen",
+                        "Welche muss ich von {firstDate} bis {secondDate} erledigen",
+                        "Was muss ich von {firstDate} bis {secondDate} erledigen"
+                    ]
+                },
+                {
+                    "name": "UpdateDescriptionIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{subject}"
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        },
+                        {
+                            "name": "description",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{description}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Ergänze etwas zu einer Erinnerung am {date} um {time}",
+                        "Ergänze etwas zu einer Erinnerung um {time}",
+                        "Ergänze etwas zu einer Erinnerung am {date}",
+                        "Ändere die Beschreibung von einer Erinnerung am {date} um {time}",
+                        "Ändere die Beschreibung von einer Erinnerung um {time}",
+                        "Ändere die Beschreibung von einer Erinnerung am {date}",
+                        "Ergänze etwas zu {subject}",
+                        "Füge Details zu {subject} hinzu",
+                        "Ändere Details zu {subject}",
+                        "Ändere die Beschreibung von {subject}"
+                    ]
+                },
+                {
+                    "name": "CheckoutRemindersIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Zeig mir {name} Erinnerungen",
+                        "Zeig mir {name} Reminder",
+                        "Welche Erinnerungen hat {name}",
+                        "Welche Erinnerungen muss {name} erledigen",
+                        "Welche Erinnerungen muss {name} machen",
+                        "Welche Termine hat {name}",
+                        "Was muss {name} machen",
+                        "Zeige mir die Erinnerungen für {name} "
+                    ]
+                },
+                {
+                    "name": "ToggleSharingRemindersIntent",
+                    "slots": [
+                        {
+                            "name": "toggle",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "{toggle} das Teilen meiner Erinnerungen",
+                        "{toggle} das Teilen",
+                        "Ich möchte teilen {toggle}",
+                        "Ich möchte meine Erinnerungen {toggle} sharen",
+                        "Ich möchte meine Erinnerungen {toggle} teilen",
+                        "Ich moechte meine Erinnerungen {toggle} sharen",
+                        "Ich moechte meine Erinnerungen {toggle} teilen",
+                        "{toggle} das Teilen von meinen Erinnerungen",
+                        "{toggle} das Sharen von meinen Erinnerungen",
+                        "{toggle} meine mehr Erinnerungen sharen"
+                    ]
+                },
+                {
+                    "name": "ConnectToIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "key",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "Mein code lautet {key}",
+                                "{key}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Verbinde mich mit {name} ",
+                        "Verbinde mich mit {name} Remider",
+                        "Verbinde mich mit {name} Termine",
+                        "Verbinde mich mit {name} Erinnerungen",
+                        "Verbinde mich mit {name} Remidern"
+                    ]
+                },
+                {
+                    "name": "RecurringReminderIntent",
+                    "slots": [
+                        {
+                            "name": "frequency",
+                            "type": "AMAZON.DURATION",
+                            "samples": [
+                                "{frequency}"
+                            ]
+                        },
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{date}"
+                            ]
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{time}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Füge eine Erinnerung für jeden {date} hinzu",
+                        "Erinnere mich wiederkehrend an {subject}",
+                        "Erinnere mich jeden {date}",
+                        "Erinnere mich alle {frequency}",
+                        "Erinnere mich regelmäßig an {subject}"
+                    ]
+                },
+                {
+                    "name": "ConfirmReminderIntent",
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "Ändere {subject} in erledigt",
+                        "Ich bin fertig mit {subject}",
+                        "{subject} ist fertig",
+                        "{subject} ist fertiggestellt",
+                        "Ich habe {subject} erledigt",
+                        "Markiere {subject} als erledigt",
+                        "Bestätige {subject}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CreateReminderIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.806157230468.587387209856"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.597177447978.358454855529"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.597177447978.676239774757"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "AddDescriptionIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "description",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "UpdateReminderIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.775048577144.639579643030"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "newDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.775048577144.69058025939"
+                            }
+                        },
+                        {
+                            "name": "newTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.775048577144.1375386396522"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UpdateDescriptionIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.976372844453.1026274611224"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "description",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.976372844453.197766607500"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "RecurringReminderIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "frequency",
+                            "type": "AMAZON.DURATION",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1006745112183.61623548738"
+                            }
+                        },
+                        {
+                            "name": "subject",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1006745112183.1218295048419"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1006745112183.1538490648321"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ConnectToIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "key",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1561953994969.1401627516077"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.597177447978.358454855529",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "An welchem Tag willst du erinnert werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.597177447978.676239774757",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Um welche Uhrzeit willst du erinnert werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1243396284628",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Möchtest du am {date} um {time} an {subject} erinnert werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1465579022834",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "abc"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.806157230468.587387209856",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Woran willst du erinnert werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.775048577144.69058025939",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Auf welches Datum soll ich ihre Erinnerung legen?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.775048577144.1375386396522",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Auf welche Uhrzeit soll ihre Erinnerung verlegt werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.775048577144.639579643030",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Welche Erinnerung möchtest du ändern?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.976372844453.1026274611224",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Welche Erinnerung möchten Sie ändern?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.976372844453.197766607500",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Mit was möchten Sie die Beschreibung ersetzen?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1119322146846",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Kannst du mir den Code vorlesen?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Wie lautet dein Code?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1561953994969.1401627516077",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Wie lautet dein Code?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1006745112183.61623548738",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Wie weit auseinander sollen die Erinnerungen liegen?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1006745112183.1218295048419",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "An welchem Datum möchtest du erinnert werden?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1006745112183.1538490648321",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Um welche Uhrzeit möchtest du erinnert werden?"
+                    }
+                ]
+            }
+        ]
+    }
+}
